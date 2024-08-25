@@ -7,32 +7,25 @@ const int Fixed::_rawBits = 8;
 
 //********************************Constructeurs/Destructeur************************************//
 
-Fixed::Fixed() : _value(0)
-{
-	std::cout << "Default constructor called" << std::endl;
+Fixed::Fixed() : _value(0) {
 }
 
 Fixed::Fixed(const int value) : _value(value << _rawBits) {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value) : _value(roundf(value * (1 << _rawBits))) {
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fixed) : _value(fixed._value) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 //********************************Surcharges d'operateurs************************************//
 
 Fixed &Fixed::operator=(const Fixed &other) {
-	std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other) {
         this->setRawBits(other.getRawBits());
     }
