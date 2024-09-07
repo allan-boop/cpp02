@@ -1,3 +1,4 @@
+#pragma once
 #include <iomanip>
 
 class Fixed
@@ -9,7 +10,6 @@ class Fixed
 		Fixed(const Fixed &fixed);
 		~Fixed();
 		Fixed	&operator=(const Fixed &other);
-		friend std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
@@ -19,3 +19,5 @@ class Fixed
 		int _value;
 		static const int _rawBits;
 };
+
+std::ostream &operator<<( std::ostream & o, Fixed const & i );

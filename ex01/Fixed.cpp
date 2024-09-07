@@ -34,14 +34,12 @@ Fixed &Fixed::operator=(const Fixed &other) {
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
-    float floatValue = static_cast<float>(fixed.getRawBits()) / (1 << Fixed::_rawBits);
-    out << floatValue;
-    return out;
+std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
+    o << i.toFloat();
+    return o;
 }
 
 int Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
 }
 
