@@ -56,10 +56,9 @@ bool Fixed::operator!=(const Fixed &other) const {
 	return this->_value != other._value;
 }
 
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
-    float floatValue = static_cast<float>(fixed.getRawBits()) / (1 << Fixed::_rawBits);
-    out << floatValue;
-    return out;
+std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
+    o << i.toFloat();
+    return o;
 }
 
 Fixed Fixed::operator+(const Fixed &other) const {

@@ -14,7 +14,6 @@ class Fixed
 
 		//*************Surcharge d'operateur******************/
 		Fixed				&operator=(const Fixed &other);
-		friend std::ostream	&operator<<(std::ostream &out, const Fixed &fixed);
 		bool 				operator>(const Fixed &other) const;
 		bool 				operator<(const Fixed &other) const;
 		bool 				operator>=(const Fixed &other) const;
@@ -44,3 +43,5 @@ class Fixed
 		int					_value;
 		static const int	_rawBits;
 };
+
+std::ostream &operator<<( std::ostream & o, Fixed const & i );
